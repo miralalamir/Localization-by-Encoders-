@@ -30,7 +30,7 @@ for i in range(4):
     print(f"Distance {i+1}: {distance[i]}")
 
 print(d)
-distance[0] = 22*rpm[0]
+# distance[0] = 22*rpm[0]
 
 
 if rpm[0] == rpm[1]:
