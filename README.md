@@ -131,10 +131,11 @@ The code is built to get data manually as a start.
 
 ### 2. Localization
 - Localization needs distance that the robot moved to get **X** and **Y** and by adding the previous distance to know what was the starting point for the robot. (Lines 24 and 25)
+- Improted math to do sin() and con().
 
 ### 3. Distance 
-- distance, is the original distance that we have, and why multiblied by 22, because the circumference of the wheel that we have is ≈ 22cm (it is actually 21.99 cm), so we times how many rovulotion per minute by the circumference of teh wheel to get the final distance.
-- d, it is the distance that we use for the equation (all distances from the motors divided by 4)
+- distance, is the original distance that we have, and why multiblied by 22, because the circumference of the wheel that we have is ≈ 22cm (it is actually 21.99 cm), so we times how many rovulotion per minute by the circumference of teh wheel to get the final distance. (Line 20)
+- d, it is the distance that we use for the equation (all distances from the motors divided by 4) (Line 23)
 
 ## Accuracy Improvement
 
