@@ -120,6 +120,22 @@ The robot position updates continuously.
 
 ---
 
+## Code overview
+
+The code is built to get data manually as a start.
+
+### 1. RPM function (Revolution Per Minute)
+- This function focuses on getting the information (manually for now) and calculate it to get the speed for motors. (Lines from 3-5)
+- We used this function in a for loop and to get information also, to calculate every and each motor alone. (Lines from 16-21)
+- When we get the speeds and distances for each motor, we could know whether the robot is going in which direction. (forward, backward, left or right) (Lines from 36-41)
+
+### 2. Localization
+- Localization needs distance that the robot moved to get **X** and **Y** and by adding the previous distance to know what was the starting point for the robot. (Lines 24 and 25)
+
+### 3. Ditance 
+- distance, is the original distance that we have, and why multiblied by 22, because the circumference of the wheel that we have is ≈ 22cm (it is actually 21.99 cm), so we times how many rovulotion per minute by the circumference of teh wheel to get the final distance.
+- d, it is the distance that we use for the equation (all distances from the motors divided by 4)
+
 ## Accuracy Improvement
 
 GPS accuracy can be improved by combining multiple localization methods:
@@ -137,5 +153,4 @@ Convert the current algorithm into a ROS node:
 
 - Subscribe to encoder topics
 - Receive real-time motor data
-- Calculate odometry
 - Publish robot position
