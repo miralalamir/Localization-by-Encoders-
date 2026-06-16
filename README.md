@@ -137,6 +137,33 @@ The code is built to get data manually as a start.
 - distance, is the original distance that we have, and why multiblied by 22, because the circumference of the wheel that we have is ≈ 22cm (it is actually 21.99 cm), so we times how many rovulotion per minute by the circumference of teh wheel to get the final distance. (Line 20)
 - d, it is the distance that we use for the equation (all distances from the motors divided by 4) (Line 23)
 
+### 4. Coditions 
+**NOTE: [0] IS FRONT RIGHT
+        [1] IS FRONT LEFT
+        [2] IS BACK RIGHT
+        [3] IS BACK LEFT
+        
+#### a. When both are moving is the same direction
+- That means it is backward or forward according to the sign of their RPM.
+
+#### b. When one is stopped (FR or FL) and others are working
+- That means that the robot is rotating arount the left wheel, so our *Pivot* is the left wheel.(*Pivot* is a new word which means the main point that we are totating around)
+- To get the Pivot we will use
+$$\text{Rotation Angle} = \frac{\text{Distance of Outer Wheel } (A) \times 360}{2\pi \times \text{Distance to Pivot } (l)}$$
+- This is simbly take the revolution (speed) of the motor, multiplied by 360 to get the precentage, divided by 2π to know the circumference and finally, * 29.5 the radius (the length between the two wheels).
+
+#### c. When each side motors are moving it differnt dirctions
+- That means that the robot is moving around itself, which means that the *Pivot* is half the L (the length between the 2 wheels).
+- The formula for it is
+$$\text{Rotation Angle} = \frac{l}{2}$$
+
+#### d. When each side motors are moving but in different speeds
+- That means that the *Pivot* is beside the robot, which means we have to get the velovity for each side first.
+$$\text{velocity} = \frac{d_1 + d_2}{2 \times \text{time}}$$
+- After we get the velocity we need to know how far the *Pivot* from the robot,
+$$\text{Rotation Angle} = -\frac{L}{2} \times \frac{v_r + v_l}{v_r - v_l}$$
+the negative make the right side is negative and the left side is positive in outputs, L/2 is to know where is the center of the robot so we can know the starting point of this output (for example if the output is 5cm, so the *Pivot* is away from the center of the rbot by 5cm to the left)and finally Vr + Vl is to get the total Velocity and then divide it to the differnece btween them.
+
 ## Accuracy Improvement
 
 GPS accuracy can be improved by combining multiple localization methods:
